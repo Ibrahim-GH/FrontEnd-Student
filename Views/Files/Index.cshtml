@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<a href="/Files/Create/@ViewBag.StudentId"  class="btn btn-primary">Create</a>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>STUDENTID</th>
+        <th>DETAILS</th>
+        <th>DWONLOAD</th>
+        <th>DELETE</th>
+        
+    </tr>
+    @foreach (var s in ViewBag.Files)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.StudentId</td>
+            <td><a href="http://localhost:62696/api/File/DownloadFile/@s.Id">Download</a></td>
+            <td><a href="/Files/Delete/@s.Id?Student=@ViewBag.StudentId">delete</a></td>
+            
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<a href="/Files/Create/@ViewBag.StudentId" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Path</th>
+        <th>StudentId</th>
+        <th>Download</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var f in ViewBag.files)
+    {
+        <tr>
+            <td>@f.Id</td>
+            <td>@f.Name</td>
+            <td>@f.Path</td>
+            <td>@f.StudentId</td>
+            <td><a href="http://localhost:62696/api/Files/DownloadFile/@f.Id">Download</a></td>
+            td><a href="/Students/Edit/@s.Id">Edit</a></td>
+            <td><a href="/Files/Delete/@f.Id?StudentId=@ViewBag.StudentId">Delete</a></td>
+        </tr>
+    }
+</table>*@

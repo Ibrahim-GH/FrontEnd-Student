@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+
+<form>
+    <input type="file" id="myfile" />
+    <input type="button" onclick="uploadFile();" value="Upload" />
+</form>
+
+<script type="text/javascript">
+
+    function Uploadfile() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 204)
+                window.location = "/Files/Index/@ViewBag.StudentId";
+        }
+
+        var file = document.getElementById('myfile').files[0];
+
+        var formdata = new FormData();
+        formdata.append("file", file);
+
+        xhr.open("POST", "http://localhost:62696/api/File/UploadFile/@ViewBag.StudentId" /);
+        xhr.send(formdata);
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form>
+    <input type="file" id="myfile" />
+    <input type="button" onclick="uploadFile();" value="Upload" />
+</form>
+
+<script type="text/javascript">
+        function uploadFile() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () { // listen for state changes
+                if (xhr.status == 204) { // when completed we can move away
+                    window.location = "/Files/Index/@ViewBag.StudentId";
+                }
+            }
+            var file = document.getElementById('myfile').files[0];
+
+            var formData = new FormData();
+            formData.append("file", file);
+
+     
+        xhr.open("POST", "http://localhost:62696/api/Files/UploadFile/@ViewBag.StudentId");
+        xhr.send(formData);
+
+    }
+</script>*@

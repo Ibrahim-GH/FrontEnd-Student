@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="/Students/Create" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>DETAILS</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+        <th>FILES</th>
+    </tr>
+    @foreach (var s in ViewBag.Students)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Age</td>
+            <td><a href="/Students/Details/@s.Id">details</a></td>
+            <td><a href="/Students/Edit/@s.Id">Edit</a></td>
+            <td><a href="/Students/Delete/@s.Id">delete</a></td>
+            <td><a href="/Files/Index/@s.Id">files</a></td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<a href="/Students/Create" class="btn btn-primary">Create</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Files</th>
+    </tr>
+    @foreach (var s in ViewBag.Students)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Age</td>
+            <td><a href="/Students/Details/@s.Id">Details</a></td>
+            <td><a href="/Students/Edit/@s.Id">Edit</a></td>
+            <td><a href="/Students/Delete/@s.Id">Delete</a></td>
+            <td><a href="/Files/Index/@s.Id">Files</a></td>
+        </tr>
+    }
+</table>*@
